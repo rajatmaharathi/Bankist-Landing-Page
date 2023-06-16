@@ -9,6 +9,12 @@ const tabs = document.querySelectorAll('.operations__tab');
 const tabscontainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
 const nav = document.querySelector('.nav');
+const slides = document.querySelectorAll('.slide');
+const btnLeft = document.querySelector('.slider__btn--left');
+const btnRight = document.querySelector('.slider__btn--right');
+let curSlide = 0;
+const maxSlide = slides.length;
+const dotContainer = document.querySelector('.dots');
 
 //Modal Window
 const openModal = function (e) {
@@ -137,12 +143,6 @@ const imgObeserver = new IntersectionObserver(loadImg, {
 imgTargets.forEach(img => imgObeserver.observe(img));
 
 //Slider
-const slides = document.querySelectorAll('.slide');
-const btnLeft = document.querySelector('.slider__btn--left');
-const btnRight = document.querySelector('.slider__btn--right');
-let curSlide = 0;
-const maxSlide = slides.length;
-const dotContainer = document.querySelector('.dots');
 const createDots = function () {
   slides.forEach(function (_, i) {
     dotContainer.insertAdjacentHTML(
@@ -214,5 +214,3 @@ dotContainer.addEventListener('click', function (e) {
     activateDot(slide);
   }
 });
-
-slider();
